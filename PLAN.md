@@ -536,3 +536,4 @@ Reading:
   - Body: two coefficient tables on v's top 7 bits → seed → product P15 → **divider** (applies the phase digit-serially; 270 forward + 308 cleanup) → second table → inverse product.
   - About 6 body stages sit at 44–45 live qubits (Q46 build).
 - **Watcher:** the "Apex Grandmaster" #1 notebook is a repackage of our exact 3 files (28.15096), so it was a false alarm.
+- **Divider source (`native/candidate01/divider.py`):** every bit position uses a hand-fitted quadratic XOR plan (custom carry polynomials, HMR erasure with exact phase repayment). Beating it with radix-4 SRT would mean re-deriving this gadget level at radix 4. Multi-day work, success uncertain. **Decision point with the user.**
