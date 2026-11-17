@@ -108,7 +108,7 @@ Public frontier per task (maoxin123 v27 notebook, verified there with the offici
 | **Nov 16–18** | **P0 Infrastructure** | All 3 official verifiers pass locally (or on Kaggle) on the reference *and* on the public frontier files; harness and logging in place. |
 | **Nov 18–Dec 2** | **P1 Fast wins** | invsqrt and chemistry beat the public frontier locally; first submission above 28.1. |
 | **Dec 2–Dec 23** | **P2 Deep work** | DQI decoder work, chemistry training sweeps, agentic search loops; target ≥ 30. |
-| **Dec 23–Jan 13** | **P3 Push and team decision** | Best-of combos; decide on any team merger before **Jan 13** (also the entry deadline). |
+| **Dec 23–Jan 13** | **P3 Push** | Best-of combos of our own circuits. Solo: no merger (user decision 2026-11-17). Jan 13 is the entry deadline. |
 | **Jan 13–Jan 20** | **P4 Freeze** | Generators reproduce the final files byte-for-byte; finals chosen (one safe, one aggressive); docs and NOTICE written. |
 
 ### Compute decision (2026-11-16): all heavy work runs on Kaggle
@@ -470,9 +470,16 @@ Reading:
 - The best public LB score is 28.15096: Atakan Aldemir, "QCC: Shared Products and Controlled Refits" (all-49 GF24 DQI closings plus 4 product-retention pairs; maoxin123's 4,022-Toffoli chemistry loaders with Atakan's refit weights; maoxin123's 44-qubit invsqrt).
 - `kaggle_nb/v2_best_public` re-verifies that package with the official verifiers (DQI at the default salt plus salts s1 and s2) before we submit it.
 - `kaggle_nb/v1_composite` (our own pick of files) is superseded. Lesson: an author's label is not always the file's SHA-256 (maoxin123's "56ef2562" chemistry is npz `a73b25d2`).
-- Merger outreach drafts: `outreach/` (local only; you post them).
+- Merger outreach drafts in `outreach/` are shelved: the user competes solo (2026-11-17).
 - **Best-public package re-verified (`kaggle_nb/v2_best_public`):**
   - invsqrt 74,797.37; DQI 3.46410e11 (0 failures at the default salt and s1, 1 at s2); chemistry 294,642,299.76.
   - **GM 28.15096.** Submitted as ref 58464611.
   - The v1 composite (DQI `61c8348d`) lost 1 shot at the default salt (GM 28.108) and is not used.
 - **invsqrt Toffoli split by stage (`0af21cb8`, static):** normalize 165, lookup/Horner 188, pre-phase 285, phase 53, then about 640 for post-phase plus clean-up (the division that rebuilds x from y) and 104 for denormalize. Forward and clean-up are roughly even, so neither half has a cheap shortcut. Erasing y by measurement still needs y recomputed for its phase fix-up.
+
+### 9.13 Forum scan 2026-11-17 (solo from here on)
+- **User decision: solo, no merger.** Outreach shelved.
+- RezOps briefing (759655): public best-per-task GM 28.107; leader 10% above the public line, and nobody knows which task holds the gap. DQI 66b4f18b (Balram, −20 Toffolis × 41 closing gadgets) has a 48-draw expected cost of 3.4788e11; our package's DQI fails 1 shot on salt s2, so the private draw may reorder the plateau.
+- David Pilný's SAT certificates: no 2–4-gate local rewrite wins on the 44q invsqrt (558 windows). Gains must come from phase tricks, MBU or workspace, not peephole rewriting.
+- Chih-Kai Wang (759048): a rank-173 decomposition of (H·D, H_hi·D²) over GF(2^24) (older 392k family, −546 Toffolis). The newest family has 1,376 independent GF(2^24) multiplies. **Lever D1:** measure the Toffolis per multiply in our DQI; if one is above the ~99 Chudnovsky-on-F8 bilinear rank (14·6 + 15), swap in a lower-rank decomposition, which is an exact, mechanical win.
+- RezOps negative row: chemistry with 7 groups rounds to 22–24 mHa (fails 20). This confirms our B2 result.
