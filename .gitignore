@@ -21,3 +21,4 @@ tools/.kaggle_username
 *.log
 tools/.frontier_state.json
 kaggle/public_ds/
+kaggle_ds/

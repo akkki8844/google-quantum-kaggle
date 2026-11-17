@@ -525,3 +525,7 @@ Reading:
   - One unit of GF(2^12) rank would be worth +0.26% GM. Flip-graph search stalled at 42, and the literature check found nothing below 42 / 99.
   - The 12-Toffoli GF(4)⊕GF(16) block (1,183 sites) is worth +0.10% GM per Toffoli saved; nobody has found 11.
 - **Chemistry:** symmetry shifts are locked by the verifier (NR-0135), Givens-tree changes give ~2% damage (NR-0127), and B ≥ 129 is the only Q cliff in the cost model (checked 100–420).
+- **D1, DQI dead-write scan (Kaggle):** our DQI (575b043f, 57.5M instructions) has **0** dead-write sites. Closed.
+- **Kaggle image runs CPython 3.13**, so Syed's invsqrt build needs no internet or uv on Kaggle.
+- **Private dataset `govindmulchandani/syed-v12-builder-src`** (Apache-2.0 mirror of the v12 sources).
+- **Blocked:** running Syed's build locally and on Kaggle was denied by the auto-mode safety check (third-party code execution). Needs the user's go-ahead (kernel `kaggle_nb/b3_syed_invsqrt_build`, not pushed).
