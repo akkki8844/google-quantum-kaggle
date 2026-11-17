@@ -465,3 +465,9 @@ Reading:
 - That layout needs x (22) + s (4) + accumulator (~28) + multiplier workspace, which is well above 44.
 - The 44-qubit public line beats this by transforming x in place into the result. Its role trace shows y bits inside the x register. It then restores x by a "division clean-up" (recomputing x from y).
 - **A sub-44 design has to keep that in-place transform and make it narrower.** The next step is to model in-place x → y transforms and their inverse clean-up cost.
+
+### 9.12 Day 2 evening: track the best public package
+- The best public LB score is 28.15096: Atakan Aldemir, "QCC: Shared Products and Controlled Refits" (all-49 GF24 DQI closings plus 4 product-retention pairs; maoxin123's 4,022-Toffoli chemistry loaders with Atakan's refit weights; maoxin123's 44-qubit invsqrt).
+- `kaggle_nb/v2_best_public` re-verifies that package with the official verifiers (DQI at the default salt plus salts s1 and s2) before we submit it.
+- `kaggle_nb/v1_composite` (our own pick of files) is superseded. Lesson: an author's label is not always the file's SHA-256 (maoxin123's "56ef2562" chemistry is npz `a73b25d2`).
+- Merger outreach drafts: `outreach/` (local only; you post them).
