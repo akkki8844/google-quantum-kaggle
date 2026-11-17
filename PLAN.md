@@ -484,3 +484,15 @@ Reading:
 - Chih-Kai Wang (759048): a rank-173 decomposition of (H·D, H_hi·D²) over GF(2^24) (older 392k family, −546 Toffolis). The newest family has 1,376 independent GF(2^24) multiplies. **Lever D1:** measure the Toffolis per multiply in our DQI; if one is above the ~99 Chudnovsky-on-F8 bilinear rank (14·6 + 15), swap in a lower-rank decomposition, which is an exact, mechanical win.
 - RezOps negative row: chemistry with 7 groups rounds to 22–24 mHa (fails 20). This confirms our B2 result.
 - **58464611 scored 28.15096** (exactly the local verified GM). Our best confirmed score is now 28.15096.
+
+### 9.14 Route to 30 via prize-forced publication (2026-11-17)
+- **Prize rules force the leaders to go public:**
+  - **Milestone Prize:** highest public LB at **Nov 20 23:59 UTC**; the winner must publish a notebook (deadline unclear, thread 758095 is unanswered).
+  - **Longest Leader Prize:** the notebooks and datasets must be public **by Jan 4, 2027 23:59 UTC**.
+  - So a ~31-level package should be public by Jan 4 at the latest, possibly around Nov 21. Final deadline Jan 20.
+- **Plan:**
+  - (1) `tools/frontier_watch.py` runs in the background and flags any new or updated top-3 public notebook.
+  - (2) When one appears, verify with `kaggle_nb/v2_best_public` (pin by hash, all three verifiers, DQI at 3 salts), credit the lineage, and submit.
+  - (3) In the meantime, build our own improvements: our own invsqrt generator (needed for prize-rule compliance anyway, plus a narrower or cheaper design), so they stack on whatever goes public.
+- Kaggle's notebook API sorts by score but doesn't return it; the watcher tracks the ref and version of the top 3.
+- DQI builder source: not in the current version of the syed3000 dataset, and old versions can't be downloaded by CLI. Lever D1 is parked (expected ≤1–2%).

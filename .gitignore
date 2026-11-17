@@ -19,3 +19,4 @@ tools/.kaggle_username
 *.npz
 *.zip
 *.log
+tools/.frontier_state.json
