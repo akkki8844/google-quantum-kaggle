@@ -496,3 +496,6 @@ Reading:
   - (3) In the meantime, build our own improvements: our own invsqrt generator (needed for prize-rule compliance anyway, plus a narrower or cheaper design), so they stack on whatever goes public.
 - Kaggle's notebook API sorts by score but doesn't return it; the watcher tracks the ref and version of the top 3.
 - DQI builder source: not in the current version of the syed3000 dataset, and old versions can't be downloaded by CLI. Lever D1 is parked (expected ≤1–2%).
+- **Caveat on the publication route:** a top team can skip the $10k Milestone and Longest Leader prizes to protect its final rank, so publication is likely but not guaranteed.
+- **Public invsqrt work is netlist surgery, not source:** the atlas dataset (asteriospanoras) and maoxin123 ship only .kmb/.kmx plus recipes (splices, dead-write fixes, ~0.05–0.2% each). No 44q generator source is public.
+- **s3-qubit (q25) removal, analysed:** s3's information can't hop between host qubits, because any CX hop corrupts normal inputs (the hosts carry live data for x ≥ 64). Freeing q25 needs s capped at 7 for x < 64, with the special cases handled in the unused table rows 0–15 and a c/8-turn T/S/Z fix-up. That needs a decompiled understanding of the 0af21cb8 arithmetic. Worth ≈ +0.75% GM.
