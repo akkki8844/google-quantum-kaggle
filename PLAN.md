@@ -555,3 +555,11 @@ Reading:
   - s = (21 − lead)//2; n = x·4^s; Q = isqrt(16n) ∈ [4096, 8191]; v = Q − 4096; d = 2Q + 1; h = (64n − d²)//64.
   - C = table(v), seed U0(C, rootclass), U = U0 − Σ±C-terms over q = h + 512 (product stage).
   - Non-restoring division of U by d, rows j = 9..35, gives the phase bits; word = cyclic rotation by s.
+
+### 9.16 Parallel research + rented compute (2026-11-17)
+- The user approved 4 parallel sessions: `gf12-rank` (GF(2^12)/GF(2^24) multiply rank), `dqi-gadgets` (DQI repeated-gadget resynthesis), `chem-loaders` (ANGLE_k loader resynthesis), `invsqrt-divider` (divider/endpoint cuts). Each works in `research/<lever>/` and `kaggle_nb/<prefix>_*`; the coordinator verifies and submits.
+- **Compute:** the user is renting a server. Hetzner dedicated (monthly cap, hourly billing, excl. VAT, seen 2026-11-17):
+  - AX102: 16-core Ryzen 9 7950X3D / 128 GB, €259/mo (€0.415/h), €129 setup.
+  - AX162: 48-core EPYC 9454P / 128 GB+, €614/mo (€0.984/h), €304 setup.
+- SSH key for the server: `~/.ssh/qcc_compute` (public half to be added at order time).
+- LB at 2026-11-17 ~12:40 UTC: #1 31.014, #10 28.926, #50 28.206, #100 28.15116. We're at 28.15096: 116 above, 100 tied.
