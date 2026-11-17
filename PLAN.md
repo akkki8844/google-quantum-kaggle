@@ -537,3 +537,7 @@ Reading:
   - About 6 body stages sit at 44–45 live qubits (Q46 build).
 - **Watcher:** the "Apex Grandmaster" #1 notebook is a repackage of our exact 3 files (28.15096), so it was a false alarm.
 - **Divider source (`native/candidate01/divider.py`):** every bit position uses a hand-fitted quadratic XOR plan (custom carry polynomials, HMR erasure with exact phase repayment). Beating it with radix-4 SRT would mean re-deriving this gadget level at radix 4. Multi-day work, success uncertain. **Decision point with the user.**
+- **Divider redesign (radix-4), killed on analysis, 2026-11-17:**
+  - The divider is radix-2 non-restoring: 24 rows (j = 12..35), each digit ±1, one 13-bit framed add per row (≈11.25 Toffolis forward, 12.8 cleanup). The ±1 framing is CNOT-only.
+  - Fusing two rows needs the digit set {±1, ±3} (a stored 3·D: +14 qubits) or a zero digit (mask/mux of D: more Toffolis than one adder). The late rows already narrow (k offset).
+  - About one adder per quotient bit is the floor for this algorithm. Gains would need a different reciprocal method, and the alternatives (table + product, Newton) cost more.
