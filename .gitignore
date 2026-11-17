@@ -20,3 +20,4 @@ tools/.kaggle_username
 *.zip
 *.log
 tools/.frontier_state.json
+kaggle/public_ds/

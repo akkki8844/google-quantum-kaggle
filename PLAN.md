@@ -509,3 +509,19 @@ Reading:
     - NR-0265: DQI design alternatives.
     - NR-0204/0205: window resynthesis.
   - Conclusion: dozens of agent-assisted teams have mined the public invsqrt and DQI lines. A solo +6.6% from public parts is unlikely. **Primary route to 30 = leader publication (watcher).** Our own work is worth only if a genuinely new idea appears.
+
+### 9.15 Top-50 / top-10 push (2026-11-17, user: "top 50 is fine, top 10 possible")
+- **LB (3,255 teams), score needed for each rank:** #1 31.014 · #10 28.926 · #16 28.692 · #20 28.564 · #30 28.375 · #40 28.257 · **#50 28.2006** · #75 28.1565 · #100 28.15103.
+  - We are **#107 at 28.15096**, tied with 64 teams; ties go to the earlier submission.
+  - Top 50 needs **+0.18% GM** (= −0.53% cost on one task). Even 1 invsqrt Toffoli (+0.02% GM) passes ~30 teams.
+- **Clue:** Rithvik Redrouthu reached 30.13 in 4 entries, which suggests one big design (likely invsqrt with fewer qubits; one invsqrt qubit = +0.75% GM).
+- **New asset: full builder sources (Apache-2.0, Syed Asad Ali; credit him first)**, from dataset `syed3000/vqcc-own-circuit-portfolio` **v12**.
+  - The CLI can't fetch old versions, but the REST API can: `GET https://www.kaggle.com/api/v1/datasets/download/<owner>/<slug>?datasetVersionNumber=N` with `Authorization: Bearer <token>`.
+  - Local copy: `kaggle/public_ds/syed_v12/v12/src_{invsqrt,dqi,dfthcsos}` (gitignored).
+  - **invsqrt 46q generator (321aff83, 80,162):** frozen base `work/c10`, 13 patches, mechanical passes and an exact full-domain prover. Needs CPython 3.13 + numpy and the Linux kickmix.so (build on Kaggle). Component prices: normalization ≈95, root ≈192, product ≈228, coefficient ≈118, **divider ≈578** (biggest), 33 rotations.
+  - **DQI generator** (431 files) and **chemistry compiler** (85 files) are included too.
+- **Ledger facts (DQI):**
+  - 81% of DQI Toffolis are field products: 1,376 × GF(2^24) at rank 99 and 2,853 × GF(2^12) at rank 42.
+  - One unit of GF(2^12) rank would be worth +0.26% GM. Flip-graph search stalled at 42, and the literature check found nothing below 42 / 99.
+  - The 12-Toffoli GF(4)⊕GF(16) block (1,183 sites) is worth +0.10% GM per Toffoli saved; nobody has found 11.
+- **Chemistry:** symmetry shifts are locked by the verifier (NR-0135), Givens-tree changes give ~2% damage (NR-0127), and B ≥ 129 is the only Q cliff in the cost model (checked 100–420).
