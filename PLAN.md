@@ -546,3 +546,12 @@ Reading:
   - A: small sure gains (chemistry weight refit, single-Toffoli hunts) → rank ~80–100.
   - B: long-shot redesign (narrower DQI layout, best case 0.949× = +1.7% GM per NR-0234; or a 43q invsqrt, +0.75%), weeks with low odds.
   - C: watcher only.
+- **43q via s-cap (3 flags), killed with the exact model (`native/candidate01/whole_model.py`):**
+  - Phase = p·2^s mod 2^37 with p ∈ [2^26, 2^27), so exponent s yields phases in [2^(s−11), 2^(s−10)). For x < 64 the phase 1/√x ≥ 1/8 needs s ≥ 8.
+  - x = 16 (s = 8) and x = 2^20 (s = 0) have identical body states differing only in s3, so s3 is pure information and can't be recomputed.
+  - Marker encodings into unreachable n codes perturb the phase by ~1e-7, above the ~7.5e-9 tolerance.
+  - Matches the NR-0071/0275 dead ends.
+- **Model summary:**
+  - s = (21 − lead)//2; n = x·4^s; Q = isqrt(16n) ∈ [4096, 8191]; v = Q − 4096; d = 2Q + 1; h = (64n − d²)//64.
+  - C = table(v), seed U0(C, rootclass), U = U0 − Σ±C-terms over q = h + 512 (product stage).
+  - Non-restoring division of U by d, rows j = 9..35, gives the phase bits; word = cyclic rotation by s.
