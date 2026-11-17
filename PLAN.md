@@ -499,3 +499,13 @@ Reading:
 - **Caveat on the publication route:** a top team can skip the $10k Milestone and Longest Leader prizes to protect its final rank, so publication is likely but not guaranteed.
 - **Public invsqrt work is netlist surgery, not source:** the atlas dataset (asteriospanoras) and maoxin123 ship only .kmb/.kmx plus recipes (splices, dead-write fixes, ~0.05–0.2% each). No 44q generator source is public.
 - **s3-qubit (q25) removal, analysed:** s3's information can't hop between host qubits, because any CX hop corrupts normal inputs (the hosts carry live data for x ≥ 64). Freeing q25 needs s capped at 7 for x < 64, with the special cases handled in the unused table rows 0–15 and a c/8-turn T/S/Z fix-up. That needs a decompiled understanding of the 0af21cb8 arithmetic. Worth ≈ +0.75% GM.
+- **Own-gain search, 2026-11-17 (closed):**
+  - Dead-write scan of 0af21cb8 (`tools/dead_write_scan.py`): 0 motif-A sites. The 8 motif-B sites are Toffoli → rotation → HMR controlled rotations, which are already optimal.
+  - The public ledger (`kaggle/public_ds/negres/ledger.csv`) already kills, among others:
+    - NR-0037: split-domain small-x handling.
+    - NR-0198 / NR-0235: phase-gradient, Newton, CORDIC, bipartite and Walsh architectures.
+    - NR-0275: 43 qubits via q25.
+    - NR-0261/0262: divider MBU.
+    - NR-0265: DQI design alternatives.
+    - NR-0204/0205: window resynthesis.
+  - Conclusion: dozens of agent-assisted teams have mined the public invsqrt and DQI lines. A solo +6.6% from public parts is unlikely. **Primary route to 30 = leader publication (watcher).** Our own work is worth only if a genuinely new idea appears.
