@@ -1,0 +1,21 @@
+# Whitelist: publish only our own code and notes.
+/*
+!/.gitignore
+!/README.md
+!/PLAN.md
+!/tools/
+!/gen/
+!/kaggle_nb/
+
+# Never publish: competition data, starter kit, other people's notebooks/outputs,
+# kernel outputs, credentials, caches.
+/kaggle/
+/kaggle_nb/*/output/
+/kaggle_nb/*/kernel-metadata.json
+tools/.kaggle_username
+**/__pycache__/
+*.kmb
+*.kmx
+*.npz
+*.zip
+*.log
