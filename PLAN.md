@@ -541,3 +541,8 @@ Reading:
   - The divider is radix-2 non-restoring: 24 rows (j = 12..35), each digit ±1, one 13-bit framed add per row (≈11.25 Toffolis forward, 12.8 cleanup). The ±1 framing is CNOT-only.
   - Fusing two rows needs the digit set {±1, ±3} (a stored 3·D: +14 qubits) or a zero digit (mask/mux of D: more Toffolis than one adder). The late rows already narrow (k offset).
   - About one adder per quotient bit is the floor for this algorithm. Gains would need a different reciprocal method, and the alternatives (table + product, Newton) cost more.
+- **Chemistry source review:** Syed's v12 loaders total 4,074/pass, beaten by maoxin's 4,022 (in our pick). The compiler uses C++ min-rank and planner tooling, and the "reachable-state" loader contract (a loader only has to be correct from batch k−1's words; thread 755427 is unanswered). The research scripts aren't runnable standalone.
+- **Decision (2026-11-17), offered to the user:**
+  - A: small sure gains (chemistry weight refit, single-Toffoli hunts) → rank ~80–100.
+  - B: long-shot redesign (narrower DQI layout, best case 0.949× = +1.7% GM per NR-0234; or a 43q invsqrt, +0.75%), weeks with low odds.
+  - C: watcher only.
