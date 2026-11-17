@@ -471,3 +471,8 @@ Reading:
 - `kaggle_nb/v2_best_public` re-verifies that package with the official verifiers (DQI at the default salt plus salts s1 and s2) before we submit it.
 - `kaggle_nb/v1_composite` (our own pick of files) is superseded. Lesson: an author's label is not always the file's SHA-256 (maoxin123's "56ef2562" chemistry is npz `a73b25d2`).
 - Merger outreach drafts: `outreach/` (local only; you post them).
+- **Best-public package re-verified (`kaggle_nb/v2_best_public`):**
+  - invsqrt 74,797.37; DQI 3.46410e11 (0 failures at the default salt and s1, 1 at s2); chemistry 294,642,299.76.
+  - **GM 28.15096.** Submitted as ref 58464611.
+  - The v1 composite (DQI `61c8348d`) lost 1 shot at the default salt (GM 28.108) and is not used.
+- **invsqrt Toffoli split by stage (`0af21cb8`, static):** normalize 165, lookup/Horner 188, pre-phase 285, phase 53, then about 640 for post-phase plus clean-up (the division that rebuilds x from y) and 104 for denormalize. Forward and clean-up are roughly even, so neither half has a cheap shortcut. Erasing y by measurement still needs y recomputed for its phase fix-up.
