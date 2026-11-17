@@ -32,8 +32,10 @@ def run(cmd, **kw):
 
 
 comp = next(p.parent for p in INPUT.rglob("verifiers") if (p / "invsqrt").is_dir())
-src_zip = Path(next(glob.glob(str(INPUT / "**" / "invsqrt_source.zip"), recursive=True)))
-log("python", sys.version.split()[0], "competition", comp, "source", src_zip)
+zips = glob.glob(str(INPUT / "**" / "invsqrt_source.zip"), recursive=True)
+builds = [Path(p) for p in glob.glob(str(INPUT / "**" / "build.sh"), recursive=True)
+          if "invsqrt.kmb" in (Path(p).parent / "README.md").read_text(errors="ignore")[:600]]
+log("python", sys.version.split()[0], "competition", comp, "zips", zips, "extracted builds", builds)
 
 py = sys.executable
 if sys.version_info[:2] != (3, 13):
@@ -48,8 +50,11 @@ work = Path("/tmp/b3")
 if work.exists():
     shutil.rmtree(work)
 work.mkdir()
-with zipfile.ZipFile(src_zip) as z:
-    z.extractall(work)
+if zips:
+    with zipfile.ZipFile(zips[0]) as z:
+        z.extractall(work)
+else:
+    shutil.copytree(builds[0].parent, work / "invsqrt_source")
 srcdir = next(work.rglob("build.sh")).parent
 outdir = Path("/tmp/b3_out")
 outdir.mkdir(exist_ok=True)

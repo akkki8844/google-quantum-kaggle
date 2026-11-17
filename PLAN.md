@@ -529,3 +529,10 @@ Reading:
 - **Kaggle image runs CPython 3.13**, so Syed's invsqrt build needs no internet or uv on Kaggle.
 - **Private dataset `govindmulchandani/syed-v12-builder-src`** (Apache-2.0 mirror of the v12 sources).
 - **Blocked:** running Syed's build locally and on Kaggle was denied by the auto-mode safety check (third-party code execution). Needs the user's go-ahead (kernel `kaggle_nb/b3_syed_invsqrt_build`, not pushed).
+- **B3 (Kaggle):** Syed's invsqrt generator rebuilds **byte-identically** (321aff83). Exact proof PASS; official PASS 80,162.73 at Q46. Build takes 144 s on Kaggle's CPython 3.13 (offline).
+- **B4:** ran Syed's generic finishing passes (affine audit/rewrite, held-product hold pass, Z_POW merge) on our frontier 0af21cb8. **Zero findings, cost unchanged** (74,797.37). Mechanical passes are exhausted on the frontier.
+- **Generator architecture (from source):**
+  - normalize → in-place integer root n = v² + h (v 12 bits, h 10 bits) → body.
+  - Body: two coefficient tables on v's top 7 bits → seed → product P15 → **divider** (applies the phase digit-serially; 270 forward + 308 cleanup) → second table → inverse product.
+  - About 6 body stages sit at 44–45 live qubits (Q46 build).
+- **Watcher:** the "Apex Grandmaster" #1 notebook is a repackage of our exact 3 files (28.15096), so it was a false alarm.
