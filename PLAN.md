@@ -483,3 +483,4 @@ Reading:
 - David Pilný's SAT certificates: no 2–4-gate local rewrite wins on the 44q invsqrt (558 windows). Gains must come from phase tricks, MBU or workspace, not peephole rewriting.
 - Chih-Kai Wang (759048): a rank-173 decomposition of (H·D, H_hi·D²) over GF(2^24) (older 392k family, −546 Toffolis). The newest family has 1,376 independent GF(2^24) multiplies. **Lever D1:** measure the Toffolis per multiply in our DQI; if one is above the ~99 Chudnovsky-on-F8 bilinear rank (14·6 + 15), swap in a lower-rank decomposition, which is an exact, mechanical win.
 - RezOps negative row: chemistry with 7 groups rounds to 22–24 mHa (fails 20). This confirms our B2 result.
+- **58464611 scored 28.15096** (exactly the local verified GM). Our best confirmed score is now 28.15096.
