@@ -448,3 +448,20 @@ Each is weeks of work with uncertain payoff.
   - At some of q25's 68 control uses, no qubit is idle on all inputs.
   - Root cause: s ∈ {0..10} needs log2(11) ≈ 3.46 bits. The normalized-x trailing zeros can't hold the spare state because those bits are read as δ digits, and a 2^-21 relative error breaks the 2^-24 tolerance.
   - Removing a qubit needs a different encoding of the shift, i.e. a new architecture.
+
+### 9.11 R2 started: from-scratch invsqrt design model (`gen/invsqrt/design_model.py`)
+Exact integer model over all 3,133,452 x: normalize, table by top bits, Horner on the remaining bits, fixed-point truncation.
+
+| Layout (table bits, coordinate bits, degree, coefficient bits) | Segments | Worst err/tol |
+|---|---|---|
+| (6, 16, 3, 28) | 48 | **0.971 (passes)** |
+| (6, 16, 3, 27) | 48 | 1.069 |
+| (8, 14, 2, 27) | 192 | 1.19 |
+| (7, 15, 2, 28) | 96 | 4.9 |
+| (5, 17, 3, 28) | 24 | 7.0 |
+
+Reading:
+- The precision floor is about 28-bit coefficients and accumulator for a plain Horner layout.
+- That layout needs x (22) + s (4) + accumulator (~28) + multiplier workspace, which is well above 44.
+- The 44-qubit public line beats this by transforming x in place into the result. Its role trace shows y bits inside the x register. It then restores x by a "division clean-up" (recomputing x from y).
+- **A sub-44 design has to keep that in-place transform and make it narrower.** The next step is to model in-place x → y transforms and their inverse clean-up cost.
