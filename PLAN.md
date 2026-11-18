@@ -600,3 +600,13 @@ Reading:
     2. SRT redundant digits with a carry-save remainder.
     3. Joint (s, top bits) seed table.
     4. Direct digit recurrence for 1/√x.
+- **invsqrt architecture study (research/invsqrt_divider/ARCH.md): null.** Every variant is ≥30% worse or saves no qubit:
+  - A/A′ absolute-frame digits: +35–40%.
+  - B/B′ class-controlled rotations: +30–130%.
+  - C pebbling: ≥0%.
+  - Brainstorm 1–4: streaming 71q, SRT+CSA ~109q, joint seed table +2,000 T, Ercegovac–Lang ~110q.
+  - Key facts:
+    - The product stage and the divider stage each fill 44 on their own.
+    - A digit is globally but not locally recoverable, so releasing it means re-running the division.
+    - Class s needs every digit at weight 2^(i+s−37), so no digit angle is fixed.
+  - A ≤40q design must never hold root + remainder + digits (~51 bits encoding 21.6) at once. No such pipeline is known.
