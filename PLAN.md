@@ -563,3 +563,7 @@ Reading:
   - AX162: 48-core EPYC 9454P / 128 GB+, €614/mo (€0.984/h), €304 setup.
 - SSH key for the server: `~/.ssh/qcc_compute` (public half to be added at order time).
 - LB at 2026-11-17 ~12:40 UTC: #1 31.014, #10 28.926, #50 28.206, #100 28.15116. We're at 28.15096: 116 above, 100 tied.
+- **v3 composite (2026-11-17):** maoxin123 'QCC 28.17' has invsqrt 563d0583 (74,560.91). With our DQI 575b043f + chemistry 703843d3 it projects to ~28.181. Kernel kaggle_nb/v3_composite pushed; once it PASSes, submit with -k govindmulchandani/qcc-v3-composite -f submission.zip.
+- **Submitted v3 = ref 58495180** (2026-11-18): invsqrt 563d0583 (official PASS 74,560.91, 1,454.00 Toffolis, 44q) + DQI 575b043f + chemistry 703843d3. Local GM **28.18069**.
+- **R1 chemistry refit, closed:** the torch model matches the official metrics to ~1e-6. Adam penalty: no feasible gain. Active-set projected gradient: "no feasible descent" at the first step. Our weights are already first-order constrained-optimal, so a fixed-word weight refit gives nothing.
+- The 4 research sessions hit the 5-hour usage cap on 2026-11-17 and were resumed on 2026-11-18. dqi-gadgets census so far: GF(2^12) multiplier ≈ 46% of T, scan sharing killed, 172-T/185-T gadgets pending. The invsqrt session's baseline was moved to 563d0583.
