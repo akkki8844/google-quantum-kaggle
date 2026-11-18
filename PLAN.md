@@ -568,3 +568,9 @@ Reading:
 - **R1 chemistry refit, closed:** the torch model matches the official metrics to ~1e-6. Adam penalty: no feasible gain. Active-set projected gradient: "no feasible descent" at the first step. Our weights are already first-order constrained-optimal, so a fixed-word weight refit gives nothing.
 - The 4 research sessions hit the 5-hour usage cap on 2026-11-17 and were resumed on 2026-11-18. dqi-gadgets census so far: GF(2^12) multiplier ≈ 46% of T, scan sharing killed, 172-T/185-T gadgets pending. The invsqrt session's baseline was moved to 563d0583.
 - **New public files (2026-11-18):** invsqrt **864f81cd** (maoxin123 QCC 28.18; 74,490.95) and DQI **5f901c55** (boristown gap-3 residue repair; 3.46404204e11 at the default salt, 0 failures; 2 failures on his "notebook-verification" salt). Best per task = boristown's package (+ chemistry 703843d3), projected GM ≈ 28.192. Kernel `kaggle_nb/v4_composite` re-verifies it (invsqrt + DQI at default/s1/s2).
+- **Parallel sessions, round 1 results (2026-11-18), all null:**
+  - chem-loaders: all 15 loaders stay at 4,022 ANDs/pass.
+  - gf12-rank: no rank-41 GF(2^12) or sub-99 GF(2^24); the 30→29 lead failed (non-bilinear blocks).
+  - dqi-gadgets: the top gadget families are field products/inverses already at best-known rank.
+  - invsqrt-divider: 5 ideas, Δ ≤ 0; one lead (−1 Toffoli in cleanup rows j = 15/16) sent back for testing on 864f81cd.
+  - Notes: `research/*/README.md` / `NOTES.md`.
