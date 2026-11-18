@@ -575,7 +575,7 @@ Reading:
   - invsqrt-divider: 5 ideas, Δ ≤ 0; one lead (−1 Toffoli in cleanup rows j = 15/16) sent back for testing on 864f81cd.
   - Notes: `research/*/README.md` / `NOTES.md`.
 - **v3 (58495180) scored 28.18070.**
-- **v4 verified:** invsqrt 864f81cd 74,490.95; DQI 5f901c55 PASS with 0 failures at default/s1/s2 (3.46404204e11 / 3.46403695e11 / 3.46403824e11); chemistry 703843d3. Local GM **28.18966**. Submitted.
+- **v4 verified:** invsqrt 864f81cd 74,490.95; DQI 5f901c55 PASS with 0 failures at default/s1/s2 (3.46404204e11 / 3.46403695e11 / 3.46403824e11); chemistry 703843d3. Local GM **28.18966**. Submitted; scored **28.18964**.
 - **Chemistry attack, scoping (2026-11-18):** the public dead-end ledger has 145 chemistry rows (vs invsqrt 49, DQI 70). The J trade is already killed (NR-0128: core rank is linear in table bits, so +8 Q per word cancels it). Lower λ_eff by any refit or new factorization: killed (NR-0114/0250, B1/B2, R1). brot 7, other shapes, C pruning, 6/7-group tables: killed. Remaining measurable chemistry slack is loader products only: k0/k1 212 vs a floor of ~188, k2/k3 195 vs 189. Worth about 0.2–1% overall at most.
   - Sessions: chem-loaders → a global (ILP/annealing) product planner (k2/k3 ≤ 190, k0 ≤ 209). invsqrt-divider → pivot to a ≤ 43-qubit invsqrt design study (1 qubit ≈ 0.76% overall; it's the least-mined task and the most plausible 30 route).
 - **Chemistry redesign, verifier-level review (2026-11-18), all closed:**
