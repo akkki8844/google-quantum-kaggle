@@ -583,3 +583,8 @@ Reading:
   - The inner-QROAM k2 is the largest k with temp < brot·75 = 600. The B ≤ 128 "cliff" goes the wrong way (temp 303 → 575, T·Q 0.70×); B 129–143 sits on the only good plateau. (8,129,44) would be 1.055× but is error-killed (NR-0225/0269).
   - S, β1 and E_upper are overwritten by the verifier, so λ_eff is pinned at ≈46.79–46.91 (NR-0250 identity), and chemistry gains come only from T·Q.
   - The single binding constraint is 8-bit rounding noise (≈14.6 mHa in quadrature). Every cheaper shape (7 groups at 0.934×, B=129 at 1.055×, C=43) dies on it. Reopen chemistry only with an integeriser whose rounding noise is below ~6–9 mHa. Until then the only live chemistry work is chem-loaders' global planner (≤1% overall).
+- **invsqrt qubit round 1 (invsqrt-divider, 2026-11-18): null.** All four 43q ideas are priced in research/invsqrt_divider/NOTES.md (shift encoding, early remainder retire, folding into dead x bits, paying Toffolis per peak window: ≥26 and likely 50+ against a 39.4 budget). The current line is at its width limit.
+- **invsqrt round 2 (architecture):** after the divider the state holds ~25 quotient signs plus a ~14-bit remainder (~39 bits) encoding only n + s (~25.5 bits). That redundancy exists only because the phase is applied at the end, which s-routing forces.
+  - Session is pricing three routes: (A) absolute-frame digit recurrence with fixed per-digit angles, applied and freed immediately; (B) normalisation kept, flag-controlled angles only for the top digits; (C) block pebbling of the digits.
+  - Budgets: Q40 → C ≤ 1,862; Q38 → C ≤ 1,960; Q36 → C ≤ 2,069.
+  - Paper arXiv:2610.23832 (the benchmark source) has only the reference (260 Q, 2.08e6) and no agent-found numbers.
