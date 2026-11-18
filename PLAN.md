@@ -574,3 +574,5 @@ Reading:
   - dqi-gadgets: the top gadget families are field products/inverses already at best-known rank.
   - invsqrt-divider: 5 ideas, Δ ≤ 0; one lead (−1 Toffoli in cleanup rows j = 15/16) sent back for testing on 864f81cd.
   - Notes: `research/*/README.md` / `NOTES.md`.
+- **v3 (58495180) scored 28.18070.**
+- **v4 verified:** invsqrt 864f81cd 74,490.95; DQI 5f901c55 PASS with 0 failures at default/s1/s2 (3.46404204e11 / 3.46403695e11 / 3.46403824e11); chemistry 703843d3. Local GM **28.18966**. Submitted.
