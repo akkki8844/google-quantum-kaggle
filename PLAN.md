@@ -639,3 +639,10 @@ Reading:
   - arXiv:2610.22367 (Gu, Kemeny, Yelin, Lukin; LLM-discovered circuits): its 1/√u circuit is 142q / 1,140 T, its RS decoder ~1.5e12 Q²T, and it has no DF-THC; all worse than our frontier.
   - DQI R = 1.19 is the Clopper–Pearson floor at 0 failures (δ = 2^-128, N = 102,400), fixed by the verifier.
   - Realistic 30+ routes are now the forced reveals: the Nov 20 milestone notebook and the Longest-Leader notebooks (public by Jan 4, final deadline Jan 20). The watcher covers both.
+
+### 9.17 v6 push toward 28.5 (2026-11-18, user goal: 28.5 without relying on the watcher)
+- **Target arithmetic:** 28.5 / 28.18965 = 1.0110 GM, so the product of task ratios must rise ×1.0334 (one task −3.2%, or a mix).
+- **Small-B chemistry (new lever, closed):** the official cost model prices shapes with B ≤ 23 and many groups (e.g. (52,22,7), (72,16,5)) at 0.66–0.76× our T·Q, because the inner-QROAM temp falls from 303 to ~250 qubits and inner Toffolis drop ~3×. Capacity kills it: the error_2 target's leading eigen-components are full-rank 76×76 matrices. Truncating each to rank r leaves 8.30 Ha at r=22 and 3.11 Ha at r=60, but 7.4 mHa at r=76 (K=352; `research/chem_smallB/probe.py`). Each X^{ρc} has rank ≤ B, so B < 76 is impossible; the B ≥ 129 plateau is forced. (Kaggle GPU fit `kaggle_nb/c2_smallB_fit` as empirical check.)
+- **Chemistry C reduction at 8 groups:** each copy removed is −0.53% chemistry T·Q (+0.18% GM); C=40 gives +0.72%. It needs new words (fixed-word prunes fail, NR-0043), and new words lose the loader structure (+598 T, NR-0134), so it isn't worth it.
+- **invsqrt phase margin (864f81cd, `research/invsqrt_margin/`):** 50 inputs share the minimum margin 2.107e-12 turns at large x (err/tol 0.94–0.98); the LP has already equalised them. 1,026 inputs are below 8e-12. A perfect (zero-error) arithmetic would give at most 3.9 more bits = 18 Toffoli-eq (−1.07% invsqrt, +0.36% GM), and any extra precision costs Toffolis. Minor lever.
+- **Rotation count:** the 33 Z_POW angles are 2^-3 … 2^-35 half-turns, one each (a binary phase word), so Hamming-weight phasing doesn't apply.
