@@ -610,3 +610,9 @@ Reading:
     - A digit is globally but not locally recoverable, so releasing it means re-running the division.
     - Class s needs every digit at weight 2^(i+s−37), so no digit angle is fixed.
   - A ≤40q design must never hold root + remainder + digits (~51 bits encoding 21.6) at once. No such pipeline is known.
+- **Discord intel check (2026-11-18):** the user pasted the Discord channel (RezOps briefings 3–6 Nov, plus Max Freedom Pollard's claim that boristown shipped a C=43 "decoy" and Lera has passing C=40/42 bundles).
+  - Checked against manwithacat's manifest of 565 public circuits (kaggle/public_ds/mwc_manifest.csv).
+  - The C=39/40/42/43 tables are all 9-group (9,143,C): 312–333M, worse than our (8,143,44) 294.64M because 9 groups add 143 loader addresses.
+  - No 8-group C<44 table is public, and boristown's package ships our same 703843d3.
+  - Our v4 files beat every file in the manifest (invsqrt 864f81cd < 563d0583; DQI 5f901c55 < 575b043f).
+  - Nothing actionable: the channel is the public crowd, and the leaders are silent.
