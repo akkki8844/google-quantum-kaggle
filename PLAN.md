@@ -616,7 +616,7 @@ Reading:
   - No 8-group C<44 table is public, and boristown's package ships our same 703843d3.
   - Our v4 files beat every file in the manifest (invsqrt 864f81cd < 563d0583; DQI 5f901c55 < 575b043f).
   - Nothing actionable: the channel is the public crowd, and the leaders are silent.
-- **v5 submitted (ref 58504681):** v4 plus chemistry 4d63be3d (Leo Tang's weights on maoxin123's loaders; official PASS 294,642,170.57, −129 vs 703843d3). Local GM 28.189660, the 28.18965 tie group. Kernel `kaggle_nb/v5_composite`.
+- **v5 submitted (ref 58504681):** v4 plus chemistry 4d63be3d (Leo Tang's weights on maoxin123's loaders; official PASS 294,642,170.57, −129 vs 703843d3). Local GM 28.189660; scored **28.18965**. Kernel `kaggle_nb/v5_composite`.
   - Lesson: `kpush.py` takes inputs from `--kernel` flags, not from metadata `kernel_sources`. Kaggle auto-extracts zips, so scan loose files too.
 - **Private-salt risk (Alex Chilton's notebook):** the private LB reruns the verifiers with an unknown salt, and one failed task zeroes the whole submission. DQI failures only raise cost (5f901c55 had 2 failed shots at the "notebook-verification" salt, +0.85%).
   - Kernel `kaggle_nb/r2_salts` checks invsqrt 864f81cd at 5 salts and DQI 5f901c55 at 4. Pick finals by robustness, not only by public score.
