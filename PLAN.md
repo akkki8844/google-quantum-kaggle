@@ -633,3 +633,9 @@ Reading:
   - DQI 5f901c55 at 4 salts: 0 failures each, 3.464039–3.464043e11. With the earlier default/s1/s2 that makes 7 clean salts.
   - The 2 failures boristown saw are specific to the "notebook-verification" salt.
   - v5 (28.18965) is a safe final pick; chemistry is deterministic.
+- **Leader-intel sweep (2026-11-18), nothing usable:**
+  - Top-12 team members' Kaggle notebooks: none for this competition. The top teams are Kaggle GMs (Z³C¹oherence; Entangled Team = James Day / Geremie Yeo / Tony Li / jackvd; aadi_stonks solo; Rithvik Redrouthu 30.13 in 4 submissions).
+  - GitHub search for "kickmix" / the competition name: ~30 repos, all public-crowd tooling.
+  - arXiv:2610.22367 (Gu, Kemeny, Yelin, Lukin; LLM-discovered circuits): its 1/√u circuit is 142q / 1,140 T, its RS decoder ~1.5e12 Q²T, and it has no DF-THC; all worse than our frontier.
+  - DQI R = 1.19 is the Clopper–Pearson floor at 0 failures (δ = 2^-128, N = 102,400), fixed by the verifier.
+  - Realistic 30+ routes are now the forced reveals: the Nov 20 milestone notebook and the Longest-Leader notebooks (public by Jan 4, final deadline Jan 20). The watcher covers both.
