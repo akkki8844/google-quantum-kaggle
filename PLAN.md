@@ -628,3 +628,8 @@ Reading:
   - Shared operands and constants: none to exploit.
   - Asymmetric or multiplicative reverse: +420 q.
   - A weight-conditioned path needs input-dependent measurement, so it's invalid.
+- **Salt robustness (r2_salts): all PASS.**
+  - invsqrt 864f81cd at 5 salts (private-a/b/c, q7, zz-final): 74,490.97–74,491.03.
+  - DQI 5f901c55 at 4 salts: 0 failures each, 3.464039–3.464043e11. With the earlier default/s1/s2 that makes 7 clean salts.
+  - The 2 failures boristown saw are specific to the "notebook-verification" salt.
+  - v5 (28.18965) is a safe final pick; chemistry is deterministic.
