@@ -621,3 +621,10 @@ Reading:
 - **Private-salt risk (Alex Chilton's notebook):** the private LB reruns the verifiers with an unknown salt, and one failed task zeroes the whole submission. DQI failures only raise cost (5f901c55 had 2 failed shots at the "notebook-verification" salt, +0.85%).
   - Kernel `kaggle_nb/r2_salts` checks invsqrt 864f81cd at 5 salts and DQI 5f901c55 at 4. Pick finals by robustness, not only by public score.
 - DQI deep research session `dqi-redesign` started (it hit the usage cap once; restarted).
+- **DQI deep redesign (dqi-redesign, research/dqi_redesign/NOTES.md): null.**
+  - The frontier is a Thiele continued-fraction interpolation at 35 quadratic nodes (extraction ~153k T), synthesis already in evaluation form, a half-degree Euclid convert (~116k), and an additive-FFT scan (44k).
+  - Half-GCD blocks: best ×1.34 (width kills it, since it needs ≤ 24 extra qubits).
+  - Quartic nodes need a GF(2^48) multiplier at ≤ 136 T (none known).
+  - Shared operands and constants: none to exploit.
+  - Asymmetric or multiplicative reverse: +420 q.
+  - A weight-conditioned path needs input-dependent measurement, so it's invalid.
