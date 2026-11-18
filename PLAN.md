@@ -588,3 +588,15 @@ Reading:
   - Session is pricing three routes: (A) absolute-frame digit recurrence with fixed per-digit angles, applied and freed immediately; (B) normalisation kept, flag-controlled angles only for the top digits; (C) block pebbling of the digits.
   - Budgets: Q40 → C ≤ 1,862; Q38 → C ≤ 1,960; Q36 → C ≤ 2,069.
   - Paper arXiv:2610.23832 (the benchmark source) has only the reference (260 Q, 2.08e6) and no agent-found numbers.
+- **v4 scored 28.18964.** chem-loaders round 2 (global annealing planner): null; all 15 loaders stay at 4,022/pass.
+- **5-frame brainstorm (2026-11-18):** speedrunner, remove-assumption, hardware, competitor and biology frames gave 30 ideas.
+  - Already in the ledger: every chemistry idea (joint/noise-shaped rounding, gauge/row order, Gray-delta ROM, compressible word choice); DQI register sharing (in-place BM 1.44×), normal basis (rank is basis-invariant) and width squeezes.
+  - Traps:
+    - Z-measuring x-dependent bits gives an invalid circuit (it collapses superposition) and won't be submitted.
+    - HMR polarity tricks fail because outcomes are uniform.
+    - DQI truncation fails because R(ε) is steep.
+  - Survivors, all invsqrt and sent to invsqrt-divider:
+    1. Streaming digits. Crux: σ_j isn't a function of r_{j+1}, so U or x must stay live.
+    2. SRT redundant digits with a carry-save remainder.
+    3. Joint (s, top bits) seed table.
+    4. Direct digit recurrence for 1/√x.
