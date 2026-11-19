@@ -662,3 +662,4 @@ Reading:
 - Also seen: ahoirg invsqrt k6c 4560ac0c (46 Q, ~79k: worse).
 - `kaggle_nb/v7_composite` verifies f7841eb4 + 15a4b740 + 6ef06081 (invsqrt at 3 salts, chemistry 3, DQI 5) and writes submission.zip only if invsqrt and chemistry pass everywhere.
 - The watcher's exit 4 last night was transient; restarted.
+- **v7 verified (`kaggle_nb/v7_composite`):** chemistry 6ef06081 PASS at 3 salts (294,642,169.51); invsqrt f7841eb4 PASS at 3 (74,405.66–74,405.77); DQI 15a4b740 **0 failures at 5 salts** (3.452566–3.452568e11). Local GM 28.23163 (28.23164 with DQI averaged over salts). Submitted as ref 58538846.
