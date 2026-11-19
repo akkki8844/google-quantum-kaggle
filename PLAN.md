@@ -663,3 +663,5 @@ Reading:
 - `kaggle_nb/v7_composite` verifies f7841eb4 + 15a4b740 + 6ef06081 (invsqrt at 3 salts, chemistry 3, DQI 5) and writes submission.zip only if invsqrt and chemistry pass everywhere.
 - The watcher's exit 4 last night was transient; restarted.
 - **v7 verified (`kaggle_nb/v7_composite`):** chemistry 6ef06081 PASS at 3 salts (294,642,169.51); invsqrt f7841eb4 PASS at 3 (74,405.66–74,405.77); DQI 15a4b740 **0 failures at 5 salts** (3.452566–3.452568e11). Local GM 28.23163 (28.23164 with DQI averaged over salts). Submitted as ref 58538846.
+- **v7 scored 28.23162** on the public LB (our best; 0 DQI failures on the LB salt too). It's the default final pick: 0 failures on 6 draws (5 ours + LB).
+- Later public DQIs e39b1396 (boristown / Syed v13 line, 3.452555e11) and e208d350 (manwithacat, 3.452529e11; 48-draw expected 3.460e11) beat 15a4b740 by < 0.002% (+0.0001 GM): not worth a slot or the failure risk.
