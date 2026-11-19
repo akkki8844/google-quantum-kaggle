@@ -691,3 +691,8 @@ Reading:
 - **v11 (ref 58558650)** = same files as v10, submitted as the final assembly after the sweep.
 - v11 (ref 58558650) scored 28.23498 (same files as v10, as expected).
 - Next round (for the 00:00 UTC slots): DQI full-circuit scan for e208-type (CCX → conditional CCZ) and pw-type (spare-qubit pair window) sites on 4471b493, kernel `kaggle_nb/dq_scan`. One DQI Toffoli ≈ +0.00003 GM.
+- **DQI full-circuit site scan (`kaggle_nb/dq_scan`, private kernel qcc-dq-scan v1–v4): null.**
+  - Exact value tracker (XOR of opaque atoms) proves zero-ness and product equality; it rediscovers pw18's 16 sites on e208d350 and e208's 8 edits on 15a4b740.
+  - Pattern (a) (fresh product p used by one conditional CZ, then HMR'd with a CZ fix-up → one conditional CCZ, −0.5): 0 new sites beyond the 8 already in 4471b493.
+  - Pattern (b) (repeated identical CCX product, reuse via a provably-zero spare): 3,066 groups (≤ 3,354 Toffolis if spares existed), but **0** with a provable spare (46,323 zero intervals on 86 qubits, all shorter than the median 69,704-op window). Adding k dedicated spares saves exactly 108·k Toffolis against ≈ 823 per qubit (Q² cost), so no.
+  - Lesson: opcodes 0x81/0x01 are PUSH_CONDITION/POP_CONDITION; a v2 tracker that ignored them "found" 239 chains and the result failed ~65% of shots officially. Invalid file, discarded.
