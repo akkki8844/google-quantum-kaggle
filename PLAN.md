@@ -665,3 +665,9 @@ Reading:
 - **v7 verified (`kaggle_nb/v7_composite`):** chemistry 6ef06081 PASS at 3 salts (294,642,169.51); invsqrt f7841eb4 PASS at 3 (74,405.66–74,405.77); DQI 15a4b740 **0 failures at 5 salts** (3.452566–3.452568e11). Local GM 28.23163 (28.23164 with DQI averaged over salts). Submitted as ref 58538846.
 - **v7 scored 28.23162** on the public LB (our best; 0 DQI failures on the LB salt too). It's the default final pick: 0 failures on 6 draws (5 ours + LB).
 - Later public DQIs e39b1396 (boristown / Syed v13 line, 3.452555e11) and e208d350 (manwithacat, 3.452529e11; 48-draw expected 3.460e11) beat 15a4b740 by < 0.002% (+0.0001 GM): not worth a slot or the failure risk.
+- **LB position (2026-11-19):** 28.23162 is tied around #158 of 3,362 (#100 28.23278, #75 28.23801, #50 28.29738, #30 28.49192). One invsqrt Toffoli ≈ +0.0056 GM (≈ 60 ranks here); one loader Toffoli per pass ≈ +0.0013; one DQI Toffoli ≈ +0.00003.
+- **Free-Toffoli scans on invsqrt f7841eb4 (`research/inv_diff/`):** the 864f81cd → d0227f3c diff is one rescheduled block (an AND erased by HMR instead of uncomputed; mean Toffolis 1453.37 → 1451.44); f7841eb4 is d0227f3c with longer-precision angles. Three exact-checked scans:
+  1. Toffolis whose result is affine in the live qubits (MBU + CNOT rebuild): 6 candidates on random inputs, all FAIL on powers of two; 0 once all x ≤ 4096 and 2^k ± 1 are sampled.
+  2. CCX/CCZ whose pair product is affine (CX/CZ rewrite): 0 top-level.
+  3. 3 conditioned CCZ with zero products, all FAIL the exact check.
+  So no free Toffolis of these kinds; consistent with NR-0085.
