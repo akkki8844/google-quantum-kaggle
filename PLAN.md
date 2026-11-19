@@ -689,3 +689,5 @@ Reading:
   - **Failure sets are shared by the whole line** (all exact rewrites fail on the same inputs; the hash + salt only choose which inputs get sampled), so 15a4b740's 0-of-7 is luck: every file has ≈0.3–0.47 expected failed shots per private draw. Final picks = the two cheapest files with independent hashes: v10 (4471b493) + v8 (15a4b740).
   - inv-cross level 2: 19 of 20 1.5-blocks done, 0 hits (null).
 - **v11 (ref 58558650)** = same files as v10, submitted as the final assembly after the sweep.
+- v11 (ref 58558650) scored 28.23498 (same files as v10, as expected).
+- Next round (for the 00:00 UTC slots): DQI full-circuit scan for e208-type (CCX → conditional CCZ) and pw-type (spare-qubit pair window) sites on 4471b493, kernel `kaggle_nb/dq_scan`. One DQI Toffoli ≈ +0.00003 GM.
