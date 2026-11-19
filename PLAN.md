@@ -671,3 +671,4 @@ Reading:
   2. CCX/CCZ whose pair product is affine (CX/CZ rewrite): 0 top-level.
   3. 3 conditioned CCZ with zero products, all FAIL the exact check.
   So no free Toffolis of these kinds; consistent with NR-0085.
+- **v8 (ref 58542525):** invsqrt **ecf908fe** (boristown; a resynthesised block near body line 13115, mean Toffolis 1451.44 → 1450.94, cost 74,383.70, −0.029%) + DQI 15a4b740 + chemistry 6ef06081. Official: invsqrt PASS at 3 salts (74,383.69–74,383.79). Local GM **28.23441**. maoxin123's "QCC 28.23" notebook ships the same invsqrt.
