@@ -656,3 +656,9 @@ Reading:
 - **v6 public (ref 58516723)** = d0227f3c + 40294f00 + 4d63be3d: **LB 28.21029** (local 28.2103; mean over salts 28.1857, so private-risky).
 - **v6 robust (ref 58516785)** = d0227f3c + 8a1bda64 + 4d63be3d: local 28.2005 at every salt. This is the safe final pick. Code submissions must be named submission.zip, so `kaggle_nb/v6r_robust` republishes it.
 - **v6 robust scored 28.15748** against a local 28.2005: exactly one extra failed DQI shot (+0.46%). So the public LB uses its own hidden salt (not ""), and 8a1bda64 fails a shot there. Failure record across 6 draws (5 ours + LB): 40294f00 2 of 6, 8a1bda64 1 of 6, 5f901c55 0 of 8. **Final-pick plan:** (1) v6 public 28.21029 (40294f00); (2) d0227f3c + 5f901c55 + 4d63be3d (the asteriospanoras 28.20041 combo, 0 failures in every draw seen), to be submitted on the next daily slot as our safest high pick.
+
+### 9.18 Day 4 (2026-11-19)
+- **Overnight public frontier: 28.2316.** ozertuu's DQI **15a4b740** (3.45257e11, −0.33% vs 5f901c55) with d0227f3c + 4d63be3d scored 28.23162 on the LB. Manvender Singh's LP refit adds invsqrt **f7841eb4** (74,405.662) and chemistry **6ef06081** (294,642,169.51), both ≈ 0 gain. asteriospanoras estimates 0.42 expected failed DQI shots per draw for 15a4b740 (expected score ≈ 28.214), which is still better in expectation than 5f901c55.
+- Also seen: ahoirg invsqrt k6c 4560ac0c (46 Q, ~79k: worse).
+- `kaggle_nb/v7_composite` verifies f7841eb4 + 15a4b740 + 6ef06081 (invsqrt at 3 salts, chemistry 3, DQI 5) and writes submission.zip only if invsqrt and chemistry pass everywhere.
+- The watcher's exit 4 last night was transient; restarted.
