@@ -707,3 +707,4 @@ Reading:
 - **v12 scored 28.24117** on the public LB (new best; local 28.24120, tiny salt variation, no failures). Rank #135 of 3,426 (#100 28.24526). Final picks: v12 + an independent second DQI (edcf0e62 or f6b555a6, both 0 fails at 5 salts).
 - maoxin123 "QCC 28.24" (28.24378): invsqrt **d0a9a694** 74,339.71 (−0.030% vs acc7b9c8), with DQI edcf0e62 and chemistry a73b25d2 (worse than ours). `kaggle_nb/v13_composite`: d0a9a694 + db0a845f + 6ef06081, projected ≈ 28.2441.
 - **v13 verified and submitted (ref 58601800):** invsqrt d0a9a694 PASS at 3 salts (74,339.70–74,339.74); DQI db0a845f and chemistry 6ef06081 PASS. Local GM **28.24398**.
+- **v13 scored 28.24396** (new best; local 28.24398). Rank #117 of 3,430 (#100 28.24745, #50 28.36173, #30 28.59577).
