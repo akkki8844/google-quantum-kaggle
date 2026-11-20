@@ -696,3 +696,9 @@ Reading:
   - Pattern (a) (fresh product p used by one conditional CZ, then HMR'd with a CZ fix-up → one conditional CCZ, −0.5): 0 new sites beyond the 8 already in 4471b493.
   - Pattern (b) (repeated identical CCX product, reuse via a provably-zero spare): 3,066 groups (≤ 3,354 Toffolis if spares existed), but **0** with a provable spare (46,323 zero intervals on 86 qubits, all shorter than the median 69,704-op window). Adding k dedicated spares saves exactly 108·k Toffolis against ≈ 823 per qubit (Q² cost), so no.
   - Lesson: opcodes 0x81/0x01 are PUSH_CONDITION/POP_CONDITION; a v2 tracker that ignored them "found" 239 chains and the result failed ~65% of shots officially. Invalid file, discarded.
+
+### 9.19 Day 5 (2026-11-20)
+- Overnight the public frontier moved to **28.241**; we fell to #476 of 3,422 (#100 28.24405, #50 28.35195, #30 28.57059).
+  - ozertuu (via asteriospanoras / arsen123, 28.24094): invsqrt **acc7b9c8** 74,361.67 (−0.030% vs ecf908fe) + DQI **f6b555a6** 3.45118737e11 (−0.034% vs 4471b493) + our chemistry 6ef06081.
+  - cosmorin "PRELUDE3" (28.24100): DQI **edcf0e62** 3.45116150e11 (−0.0007% more), invsqrt acc7b9c8.
+- `kaggle_nb/v12_composite`: acc7b9c8 + edcf0e62 (fallback f6b555a6) + 6ef06081; invsqrt at 3 salts, each DQI at 5 salts. Expected ≈ 28.2410.
