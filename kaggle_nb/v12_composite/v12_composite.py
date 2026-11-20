@@ -1,4 +1,4 @@
-"""v12: invsqrt acc7b9c8 (ozertuu, via asteriospanoras 28.24094) + DQI edcf0e62 (cosmorin PRELUDE3; fallback f6b555a6,
+"""v12: invsqrt acc7b9c8 (ozertuu, via asteriospanoras 28.24094) + DQI db0a845f (goodpjw2008 swap-collapse + leaf-port; fallbacks edcf0e62 cosmorin PRELUDE3, f6b555a6
 ozertuu) + chemistry 6ef06081 (Manvender Singh; Leo Tang / maoxin123 loaders / Lera table). All on Syed Asad Ali's
 Apache-2.0 generators. Official verifiers: invsqrt at 3 salts, chemistry at 1, each DQI candidate at 5 salts.
 Writes submission.zip only if invsqrt and chemistry pass and the chosen DQI passes at the default salt."""
@@ -6,7 +6,7 @@ import glob, hashlib, json, os, subprocess, sys, zipfile
 from pathlib import Path
 INPUT, OUT, TMP = Path("/kaggle/input"), Path("/kaggle/working"), Path("/tmp/v12")
 comp = next(p.parent for p in INPUT.rglob("verifiers") if (p / "dfthcsos").is_dir())
-WANT = {"invsqrt.kmb": ["acc7b9c8"], "dqi.kmb": ["edcf0e62", "f6b555a6"], "dfthcsos/submission.npz": ["6ef06081"]}
+WANT = {"invsqrt.kmb": ["acc7b9c8"], "dqi.kmb": ["db0a845f", "edcf0e62", "f6b555a6"], "dfthcsos/submission.npz": ["6ef06081"]}
 def h(b): return hashlib.sha256(b).hexdigest()[:8]
 got, angles = {}, {}
 for z in glob.glob(str(INPUT / "**" / "*.zip"), recursive=True):
@@ -81,7 +81,7 @@ if ok and pick:
             z.writestr(n, files[n])
     (OUT / "NOTICE_SYED_ASAD_ALI.txt").write_text(
         "Lineage: invsqrt and DQI derive from generators by Syed Asad Ali (Apache-2.0). invsqrt acc7b9c8: ozertuu "
-        "(on boristown ecf908fe / maoxin123 / Ali Haydar Ozdag line). DQI edcf0e62: cosmorin (PRELUDE3, on ozertuu f6b555a6 / "
+        "(on boristown ecf908fe / maoxin123 / Ali Haydar Ozdag line). DQI db0a845f: goodpjw2008 (swap collapse + leaf port, on ozertuu f6b555a6 / "
         "koushikrudra / manwithacat line). Chemistry 6ef06081: Manvender Singh's refit of Leo Tang's weights on maoxin123's "
         "4,022-Toffoli loaders and Lera's coded-word table.\n")
 save()

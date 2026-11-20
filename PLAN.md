@@ -702,3 +702,5 @@ Reading:
   - ozertuu (via asteriospanoras / arsen123, 28.24094): invsqrt **acc7b9c8** 74,361.67 (−0.030% vs ecf908fe) + DQI **f6b555a6** 3.45118737e11 (−0.034% vs 4471b493) + our chemistry 6ef06081.
   - cosmorin "PRELUDE3" (28.24100): DQI **edcf0e62** 3.45116150e11 (−0.0007% more), invsqrt acc7b9c8.
 - `kaggle_nb/v12_composite`: acc7b9c8 + edcf0e62 (fallback f6b555a6) + 6ef06081; invsqrt at 3 salts, each DQI at 5 salts. Expected ≈ 28.2410.
+- goodpjw2008 "Swap Collapse + Leaf Port DQI" (LB 28.2412): DQI **db0a845f** 3.45110199e11 (−0.0025% vs f6b555a6), built in-notebook from f56b04c7 / f6b555a6.
+- **v12 verified (`kaggle_nb/v12_composite` v2):** invsqrt acc7b9c8 PASS at 3 salts (74,361.67–74,361.77); chemistry PASS; DQI **0 failures at all 5 salts for all three candidates** (db0a845f 3.451102–3.451105e11, edcf0e62 3.451160–3.451162e11, f6b555a6 3.451187–3.451190e11; the new line looks far more robust than 4471b493's). Local GM: db0a845f **28.24120**, edcf0e62 28.24103, f6b555a6 28.24096. Submitted db0a845f as ref 58598560.
