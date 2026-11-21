@@ -731,3 +731,5 @@ Reading:
 - `tools/dqi_reroll.py`: zero-cost DQI hash re-roll (appends `X a; X a` on the last ancilla with our codec), for a second final pick with an independent DQI draw. Not yet checked with the official verifier.
 - Rotation firing patterns of d2148a7c (`research/inv36/rotdep.py`): the 33 rotations plus the constant are full rank (no redundant rotation to merge).
 - `kaggle_nb/d2_width`: DQI 4b572141 width profile with our sound exact-value tracker; if every op has a provably idle |0> wire, a relabelling gives 899 qubits at no Toffoli cost (+0.023).
+- **DQI width (d2_width): closed.** 69,782,188 ops; with the sound tracker, 9,846,059 ops in 629 windows (some over 1.1M ops long) have no provably idle |0> wire, so 4b572141 cannot be relabelled onto 899 wires for free (median 36 idle wires, max 60 elsewhere).
+- **v15 scored 33.13517** on the public LB (local 33.13521; DQI clean on the LB salt). New best; tied with the public-frontier pack at about #21–30 (#5 33.15851, #10 33.14478, #20 33.13561).
