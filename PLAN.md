@@ -708,3 +708,8 @@ Reading:
 - maoxin123 "QCC 28.24" (28.24378): invsqrt **d0a9a694** 74,339.71 (−0.030% vs acc7b9c8), with DQI edcf0e62 and chemistry a73b25d2 (worse than ours). `kaggle_nb/v13_composite`: d0a9a694 + db0a845f + 6ef06081, projected ≈ 28.2441.
 - **v13 verified and submitted (ref 58601800):** invsqrt d0a9a694 PASS at 3 salts (74,339.70–74,339.74); DQI db0a845f and chemistry 6ef06081 PASS. Local GM **28.24398**.
 - **v13 scored 28.24396** (new best; local 28.24398). Rank #117 of 3,430 (#100 28.24745, #50 28.36173, #30 28.59577).
+
+### 9.20 Milestone reveal (2026-11-21)
+- The Nov 20 milestone notebooks went public. Public frontier **33.10** (#1 33.34845, #30 33.10186, #100 33.1002); v13 (28.24396) fell to #677 of 3,507.
+- New public files: invsqrt **d2148a7c** (37 Q, 60,955.33; qcc-milestone-set / rithvikredrouthu line), DQI **4b572141** (tonylica 900 Q, 305,041,647,011.40, 0/0 errors), chemistry ~252.53M (goodpjw2008 "dead-word loader chain DP" 252,534,924.82 at Q 405, T 13,290; boristown 252,535,127.61; ozertuu table 252,572,928.57).
+- `kaggle_nb/v14_composite`: invsqrt d2148a7c + DQI 4b572141 + cheapest passing chemistry bundle from goodpjw2008 / boristown outputs; invsqrt 3 salts, DQI 5 salts. Expected ≈ 33.102.
