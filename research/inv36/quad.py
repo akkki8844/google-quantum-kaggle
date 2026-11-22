@@ -22,21 +22,22 @@ def in_span(rows, v):
             M[hit] ^= M[r]; r += 1
     return not M[k].any()
 
-path = sys.argv[1]; nwin = int(sys.argv[2]); nshots = int(sys.argv[3])
-nq, body = parse(path); xs = edge_and_random(nshots); sim = Sim(nq, xs, seed=21)
-busy = np.load(path + ".busy.npy"); full = busy.sum(1) == nq
-starts = [i for i in range(1, len(full)) if full[i] and not full[i - 1]]
-pick = set(starts[:: max(1, len(starts) // nwin)][:nwin])
-ones = np.full(sim.W, np.uint64(0xFFFFFFFFFFFFFFFF))
-out = []
-def hook(i, s):
-    if i not in pick: return
-    Q = s.q.copy()
-    hits = []
-    for w in range(nq):
-        others = [j for j in range(nq) if j != w]
-        feats = [ones] + [Q[j] for j in others] + [Q[a] & Q[b] for a, b in combinations(others, 2)]
-        if in_span(np.array(feats), Q[w]): hits.append(w)
-    out.append((i, hits)); print(i, body[i], "quadratic wires:", hits, flush=True)
-sim.run(body, hook=hook)
-print("windows with at least one quadratic wire:", sum(1 for _, h in out if h), "of", len(out))
+if __name__ == "__main__":
+    path = sys.argv[1]; nwin = int(sys.argv[2]); nshots = int(sys.argv[3])
+    nq, body = parse(path); xs = edge_and_random(nshots); sim = Sim(nq, xs, seed=21)
+    busy = np.load(path + ".busy.npy"); full = busy.sum(1) == nq
+    starts = [i for i in range(1, len(full)) if full[i] and not full[i - 1]]
+    pick = set(starts[:: max(1, len(starts) // nwin)][:nwin])
+    ones = np.full(sim.W, np.uint64(0xFFFFFFFFFFFFFFFF))
+    out = []
+    def hook(i, s):
+        if i not in pick: return
+        Q = s.q.copy()
+        hits = []
+        for w in range(nq):
+            others = [j for j in range(nq) if j != w]
+            feats = [ones] + [Q[j] for j in others] + [Q[a] & Q[b] for a, b in combinations(others, 2)]
+            if in_span(np.array(feats), Q[w]): hits.append(w)
+        out.append((i, hits)); print(i, body[i], "quadratic wires:", hits, flush=True)
+    sim.run(body, hook=hook)
+    print("windows with at least one quadratic wire:", sum(1 for _, h in out if h), "of", len(out))
