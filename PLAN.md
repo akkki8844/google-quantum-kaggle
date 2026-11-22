@@ -758,3 +758,8 @@ Reading:
 - **v18 verified (`kaggle_nb/v18_composite`):** chemistry bundle 508364c7 (maoxin123's 3,357-T loaders) PASS 251,090,780.94, T 13,214; invsqrt bb676b95 and DQI 4b572141 PASS at the default salt (already multi-salt verified). Local GM **33.17028**. Submitted as ref 58726844.
 - **v18 scored 33.17023** on the public LB (local 33.17028). New best, about #19–25 (#10 33.17660, #20 33.17039).
 - **v19 hedge (`kaggle_nb/v19_hedge`):** v18 with DQI re-rolled to 9f6e8682 (same file as v16's, PASS at 5 salts there; default salt PASS here, 0 failures, 305,040,849,585). Final-pick pair for now: v18 + v19.
+- **DQI failure anatomy (`kaggle_nb/d6_fail`, `kaggle_nb/d7_kmap`, our numba simulator):**
+  - 983,040 shots from the verifier's distribution: 5 value errors (5.1e-6 per shot = 0.52 per 102,400-shot draw); every one is a corrupted syndrome register (ancillas clean).
+  - At fixed weight (2,048 shots each): **k = 1..17 fail on every shot**, k = 0 and k = 18..35 pass every shot. The decoder is built for weight ≥ 18 (a design shortcut). P(k ≤ 17) = 7.7e-7 per shot = 0.079 failures per draw; P(k = 18) alone would be 0.28 per draw, which is why the cut sits at 17.
+  - The other ~0.3 failures per draw are sporadic high-weight cases (k = 29, 31, 33 here, ~3e-6 per shot), deterministic in the input (same inputs fail for every exact rewrite of this decoder line).
+  - Value: removing all failures would be worth about 0.38 × 0.46% of DQI cost ≈ +0.006 GM in expectation on the private board (nothing on the public one unless its draw fails). Handling k ≤ 17 needs the decoder's skipped early steps (hundreds of Toffolis against a ~120-Toffoli budget for that 0.079), so it is not worth it; the high-weight class needs a diagnosis of the decoder first.
